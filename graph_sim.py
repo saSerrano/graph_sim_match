@@ -60,6 +60,12 @@ def graph_match(adj_a,nodes_a,adj_b,nodes_b,output_dir,max_ite=1000,epsilon=1.0)
     max_ite (int): maximum number of iterations the similarity-method is allowed to perform.
     epsilon (float): tolerance between similarity matrices under which the iterative similarity method is considered to converge.
     '''
+    # Verify for valid input
+    assert len(adj_a.shape) == 2 and len(adj_b.shape) == 2
+    assert adj_a.shape[0] == adj_a.shape[1] and adj_b.shape[0] == adj_b.shape[1]
+    assert len(nodes_a) == adj_a.shape[0] and len(nodes_b) == adj_b.shape[0]
+    assert isinstance(max_ite,int) and max_ite > 0
+    assert isinstance(epsilon,float) and epsilon >= 0.0
 
     # Load the DBN dags
     adj_a, nodes_a = read_dag(dbn_a)

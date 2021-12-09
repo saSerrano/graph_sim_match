@@ -163,6 +163,13 @@ def wgmp_lp(ad_a,ad_b,shuffle_order=np.zeros((1,)),debug=False):
     perfect_match (bool): flag that indicates whether every node was correctly matched.
     p_mat (numpy array): real-valued permutation matrix P.
     '''
+    # Verify for valid input
+    assert len(adj_a.shape) == 2 and len(adj_b.shape) == 2
+    assert adj_a.shape[0] == adj_a.shape[1] and adj_b.shape[0] == adj_b.shape[1]
+    assert adj_a.shape[0] == adj_b.shape[0]
+    assert len(shuffle_order.shape) == 1
+    assert shuffle_order.shape[0] >= 1
+
     # number of nodes
     n = ad_a.shape[0]
 
