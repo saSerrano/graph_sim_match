@@ -1,7 +1,7 @@
 '''
 DESCRIPTION
 
-This files implements the graph-similarity method from the article "Graph similarity scoring and matching", Zager & Verghese, 2008 (https://www.sciencedirect.com/science/article/pii/S0893965907001012).
+This file implements the graph-similarity method from the article "Graph similarity scoring and matching", Zager & Verghese, 2008 (https://www.sciencedirect.com/science/article/pii/S0893965907001012).
 
 Implementation author: Sergio A. Serrano
 e-mail: sserrano@inaoep.mx

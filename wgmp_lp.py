@@ -1,7 +1,7 @@
 '''
 DESCRIPTION
 
-This files implements the graph-matching method from the article "A Linear Programming Approach for the Weighted Graph Matching Problem", Almohamad & Duffuaa, 1993 (https://ieeexplore.ieee.org/abstract/document/211474?casa_token=RWt4qoAVaLkAAAAA:ZSdqi3GAb3gBiXE6uwpmOTs1zA06cqREXEsnrSXkxRUeEWrZt9DXu33yTLN67-y3bD2zylJnFTKN3To).
+This file implements the graph-matching method from the article "A Linear Programming Approach for the Weighted Graph Matching Problem", Almohamad & Duffuaa, 1993 (https://ieeexplore.ieee.org/abstract/document/211474?casa_token=RWt4qoAVaLkAAAAA:ZSdqi3GAb3gBiXE6uwpmOTs1zA06cqREXEsnrSXkxRUeEWrZt9DXu33yTLN67-y3bD2zylJnFTKN3To).
 
 Implementation author: Sergio A. Serrano
 e-mail: sserrano@inaoep.mx
