@@ -63,10 +63,13 @@ def graph_match(adj_a,nodes_a,adj_b,nodes_b,output_dir,max_ite=1000,epsilon=1.0)
     assert len(adj_a.shape) == 2 and len(adj_b.shape) == 2
     assert adj_a.shape[0] == adj_a.shape[1] and adj_b.shape[0] == adj_b.shape[1]
     all_binary = True
-    for i in range(adj.shape[0]):
-        for j in range(adj.shape[0]):
-            if adj[i,j] != 0 and adj[i,j] != 1:
-                all_binary = False
+    for adj in [adj_a,adj_b]:
+        for i in range(adj.shape[0]):
+            for j in range(adj.shape[0]):
+                if adj[i,j] != 0 and adj[i,j] != 1:
+                    all_binary = False
+                    break
+            if not all_binary:
                 break
         if not all_binary:
             break
