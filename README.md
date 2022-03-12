@@ -2,11 +2,8 @@
 
 This repository contains the implementation of two articles whose objective is to perform node matching across graphs and compute their similarity.
 
-## Dependencies
-- [Numpy](https://numpy.org/)
-- [OR-Tools](https://developers.google.com/optimization)
-
-The code was tested with the following versions: python 3.7.11, Numpy 1.21.4 and OR-Tools 9.1.9490.
+## Installation
+Execute ```pip install -e .```. It is recommended to create a python environment (such as conda) with python 3.7.11.
 
 ## Graph Matching based on Linear Programming
 File ```wgmp_lp.py``` contains the implementation of the graph-matching method, called ```wgmp_lp```, presented in the article [A Linear Programming Approach for the Weighted Graph Matching Problem](https://ieeexplore.ieee.org/abstract/document/211474?casa_token=RWt4qoAVaLkAAAAA:ZSdqi3GAb3gBiXE6uwpmOTs1zA06cqREXEsnrSXkxRUeEWrZt9DXu33yTLN67-y3bD2zylJnFTKN3To). The file also contains the ```paper_exp``` method, which can be used to replicate the evaluation of the graph-matching method, as in the article.
