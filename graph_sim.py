@@ -7,7 +7,6 @@ Implementation author: Sergio A. Serrano
 e-mail: sserrano@inaoep.mx
 '''
 
-import sys
 import os
 import numpy as np
 import pandas as pd
@@ -21,7 +20,7 @@ def st_edge_mats(adj):
 
     INPUT
 
-    adj (numpy array): input adjacency matrix.
+    adj (numpy array): input adjacency matrix. All values must be 0 or 1.
 
     OUTPUT
 
@@ -63,6 +62,15 @@ def graph_match(adj_a,nodes_a,adj_b,nodes_b,output_dir,max_ite=1000,epsilon=1.0)
     # Verify for valid input
     assert len(adj_a.shape) == 2 and len(adj_b.shape) == 2
     assert adj_a.shape[0] == adj_a.shape[1] and adj_b.shape[0] == adj_b.shape[1]
+    all_binary = True
+    for i in range(adj.shape[0]):
+        for j in range(adj.shape[0]):
+            if adj[i,j] != 0 and adj[i,j] != 1:
+                all_binary = False
+                break
+        if not all_binary:
+            break
+    assert all_binary
     assert len(nodes_a) == adj_a.shape[0] and len(nodes_b) == adj_b.shape[0]
     assert isinstance(max_ite,int) and max_ite > 0
     assert isinstance(epsilon,float) and epsilon >= 0.0
@@ -102,13 +110,13 @@ def graph_match(adj_a,nodes_a,adj_b,nodes_b,output_dir,max_ite=1000,epsilon=1.0)
 
         # Evaluate stop condition
         if ite >= max_ite:
-            stop_cause = 'Reached max-iterations - ite:'+str(ite)+' x-dif:'+str(x_diff)+' y-dif:'+str(y_diff)
+            stop_cause = 'Reached max-iterations\nite:'+str(ite)+'\nnodes-similarity-diff:'+str(x_diff)+'\nedges-similarity-diff:'+str(y_diff)
             break
         else:
             x_diff = np.absolute(x_cp - x).sum()
             y_diff = np.absolute(y_cp - y).sum()
             if x_diff <= epsilon and y_diff <= epsilon:
-                stop_cause = 'Similarity values converged - ite:'+str(ite)+' x-dif:'+str(x_diff)+' y-dif:'+str(y_diff)
+                stop_cause = 'Similarity values converged\nite:'+str(ite)+'\nnodes-similarity-diff:'+str(x_diff)+'\nedges-similarity-diff:'+str(y_diff)
                 break
 
         # Save current similarity vecs for next step
