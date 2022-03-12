@@ -142,6 +142,8 @@ def paper_exp(random_seed=1,output_dir='.'):
     dir_df.to_csv(os.path.join(output_dir,'directed_seed_'+str(random_seed)+'.csv'))
     und_df.to_csv(os.path.join(output_dir,'undirected_seed_'+str(random_seed)+'.csv'))
 
+    print('Evaluation finished.')
+
 def wgmp_lp(ad_a,ad_b,shuffle_order=np.zeros((1,)),debug=False):
     '''
     DESCRIPTION
@@ -164,9 +166,9 @@ def wgmp_lp(ad_a,ad_b,shuffle_order=np.zeros((1,)),debug=False):
     p_mat (numpy array): real-valued permutation matrix P.
     '''
     # Verify for valid input
-    assert len(adj_a.shape) == 2 and len(adj_b.shape) == 2
-    assert adj_a.shape[0] == adj_a.shape[1] and adj_b.shape[0] == adj_b.shape[1]
-    assert adj_a.shape[0] == adj_b.shape[0]
+    assert len(ad_a.shape) == 2 and len(ad_b.shape) == 2
+    assert ad_a.shape[0] == ad_a.shape[1] and ad_b.shape[0] == ad_b.shape[1]
+    assert ad_a.shape[0] == ad_b.shape[0]
     assert len(shuffle_order.shape) == 1
     assert shuffle_order.shape[0] >= 1
 
