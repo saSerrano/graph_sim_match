@@ -67,10 +67,8 @@ def graph_match(adj_a,nodes_a,adj_b,nodes_b,output_dir,max_ite=1000,epsilon=1.0)
     assert isinstance(max_ite,int) and max_ite > 0
     assert isinstance(epsilon,float) and epsilon >= 0.0
 
-    # Load the DBN dags
-    adj_a, nodes_a = read_dag(dbn_a)
+    # Build the source-edge and terminus-edge matrices
     s_mat_a, t_mat_a = st_edge_mats(adj_a)
-    adj_b, nodes_b = read_dag(dbn_b)
     s_mat_b, t_mat_b = st_edge_mats(adj_b)
 
     # Create edge-names lists
